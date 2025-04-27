@@ -19,7 +19,18 @@ const Navbar = () => {
             <NavLink to="/" onClick={() => setOpen(false)}>
                 <img className="h-9" src={assets.logo} alt="logo" />
             </NavLink>
-            
+
+            {/* Desktop Menu */}
+            <div className="hidden sm:flex items-center gap-8">
+                <NavLink to="/"><a href="#">Home</a></NavLink>
+                <NavLink to="/products"><a href="#">All Product</a></NavLink>
+                <NavLink to="/"><a href="#">Contact</a></NavLink>
+
+                <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
+                    <input className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
+                    <input src={assets.search_icon} alt='search' className='w-4 h-4' />
+                </div>
+            </div>
         </nav>
     )
 }
