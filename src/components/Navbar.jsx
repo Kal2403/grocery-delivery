@@ -48,6 +48,11 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
+
+            <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
+                {/* Menu Icon SVG */}
+                <img src={assets.menu_icon} alt='menu' />
+            </button>
         </nav>
     )
 }
