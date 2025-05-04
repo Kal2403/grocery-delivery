@@ -1,16 +1,36 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { dummyProducts } from '../assets/assets';
 
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
 
+    const currency = import.meta.VITE_CURRENCY;
+
     const navigate = useNavigate();
-    const [user, setUSer] = useState(null);
+    const [user, setUser] = useState(null);
     const [isSeller, setIsSeller] = useState(false);
     const [showUserLogin, setShowUserLogin] = useState(false);
+    const [products, setProducts] = useState([]);
 
-    const value = {navigate, user, setUSer, setIsSeller, isSeller, showUserLogin, setShowUserLogin}
+    const fetchProducts = async () => {
+        setProducts(dummyProducts);
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    const value = {
+        navigate, 
+        user, 
+        setUser, 
+        setIsSeller, 
+        isSeller, 
+        showUserLogin, 
+        setShowUserLogin
+    }
 
     return (
         <AppContext.Provider value={value}>
