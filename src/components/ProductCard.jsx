@@ -23,6 +23,24 @@ const ProductCard = ({ product }) => {
                     <p className="md:text-xl text-base font-medium text-primary">
                         {currency}${product.offerPrice}{" "} <span className="text-gray-500/60 md:text-sm text-xs line-through">{currency}${product.price}</span>
                     </p>
+                    <div onClick={(e) => { e.stopPropagation(); } } className="text-primary">
+                        {!cartItems[product._id] ? (
+                            <button className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-[80px] w-[64px] h-[34px] rounded text-primary font-medium cursor-pointer" onClick={() => addToCart(product._id)} >
+                                <img src={assets.cart_icon} alt='cart-icon' />
+                                Add
+                            </button>
+                        ) : (
+                            <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-primary/40 rounded select-none">
+                                <button onClick={() => {removeFromCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                    -
+                                </button>
+                                <span className="w-5 text-center text-primary">{cartItems[product._id]}</span>
+                                <button onClick={() => {addToCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                    +
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
