@@ -16,6 +16,14 @@ const Login = () => {
                 <p className="text-2xl font-medium m-auto">
                     <span className="text-primary">User</span> {state === "login" ? "Login" : "Sign Up"}
                 </p>
+                <div className="w-full ">
+                    <p>Email</p>
+                    <input onChange={(e) => setEmail(e.target.value)} value={email} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary" type="email" required />
+                </div>
+                <div className="w-full ">
+                    <p>Password</p>
+                    <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary" type="password" required />
+                </div>
             </form>
         </div>
     )
