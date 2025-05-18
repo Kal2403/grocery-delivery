@@ -34,6 +34,22 @@ const ProductDetails = () => {
                 <Link to={`/products/${product.category.toLowerCase()}`}> {product.category}</Link> /
                 <span className="text-primary"> {product.name}</span>
             </p>
+
+            <div className="flex flex-col md:flex-row gap-16 mt-4">
+                <div className="flex gap-3">
+                    <div className="flex flex-col gap-3">
+                        {product.image.map((image, index) => (
+                            <div key={index} onClick={() => setThumbnail(image)} className="border max-w-24 border-gray-500/30 rounded overflow-hidden cursor-pointer" >
+                                <img src={image} alt={`Thumbnail ${index + 1}`} />
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
+                        <img src={thumbnail} alt="Selected product" />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
