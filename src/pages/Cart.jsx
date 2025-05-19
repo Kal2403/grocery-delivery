@@ -114,6 +114,27 @@ const Cart = () => {
                         <option value="Online">Online Payment</option>
                     </select>
                 </div>
+
+                <hr className="border-gray-300" />
+
+                <div className="text-gray-500 mt-4 space-y-2">
+                    <p className="flex justify-between">
+                        <span>Price</span><span>{currency}{getCartAmount()}</span>
+                    </p>
+                    <p className="flex justify-between">
+                        <span>Shipping Fee</span><span className="text-green-600">Free</span>
+                    </p>
+                    <p className="flex justify-between">
+                        <span>Tax (2%)</span><span>{currency}{getCartAmount() * 2 / 100}</span>
+                    </p>
+                    <p className="flex justify-between text-lg font-medium mt-3">
+                        <span>Total Amount:</span><span>{currency}{getCartAmount() + getCartAmount() * 2 / 100}</span>
+                    </p>
+                </div>
+
+                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-primary text-white font-medium hover:bg-primary-dull transition">
+                    {paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}
+                </button>
             </div>
         </div>
     ) : null
