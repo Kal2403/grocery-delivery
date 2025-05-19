@@ -53,6 +53,14 @@ export const AppContextProvider = ({ children }) => {
         setCartItems(cartData);
     }
 
+    const getCartCount = () => {
+        let totalCount = 0;
+        for (const item in cartItems) {
+            totalCount += cartItems[item]
+        }
+        return totalCount;
+    }
+
     useEffect(() => {
         fetchProducts();
     }, []);
@@ -73,6 +81,7 @@ export const AppContextProvider = ({ children }) => {
         cartItems,
         searchQuery,
         setSearchQuery,
+        getCartCount,
     }
 
     return (
