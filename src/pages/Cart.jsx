@@ -74,6 +74,12 @@ const Cart = () => {
                         </button>
                     </div>)
                 )}
+
+                <button onClick={() => {navigate("/products"); scrollTo(0, 0)}} className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium">
+                    <img src={assets.arrow_right_icon_colored} alt="arrow" className='group-hover:-translate-x-1 transition' />
+                    Continue Shopping
+                </button>
+
             </div>
         </div>
     ) : null
