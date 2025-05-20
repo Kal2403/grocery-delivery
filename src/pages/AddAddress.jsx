@@ -26,10 +26,24 @@ const AddAddress = () => {
         country: "",
         phone: "",
     })
-    
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setAddress((prevAddress) => ({
+            ...prevAddress,
+            [name]: value,
+        }))
+        console.log(address);
+    }
+
+    const onSubmitHandler = async (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div className='mt-16 pb-16'>
-
+            
         </div>
     )
 }
