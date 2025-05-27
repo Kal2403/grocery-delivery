@@ -1,14 +1,21 @@
 import React from 'react'
+import { useAppContext } from '../../context/AppContext';
 import { assets } from '../../assets/assets';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 const SellerLayout = () => {
+
+    const { setIsSeller } = useAppContext();
 
     const sidebarLinks = [
         { name: "Add Product", path: "/seller", icon: assets.add_icon },
         { name: "Product List", path: "/seller/product-list", icon: assets.product_list_icon },
         { name: "Orders", path: "/seller/orders", icon: assets.order_icon },
     ];
+
+    const logout = async () => {
+        setIsSeller(false);
+    }
 
     return (
         <>
