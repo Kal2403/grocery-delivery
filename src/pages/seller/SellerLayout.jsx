@@ -4,6 +4,12 @@ import { Link, Outlet } from 'react-router-dom';
 
 const SellerLayout = () => {
 
+    const sidebarLinks = [
+        { name: "Add Product", path: "/seller", icon: assets.add_icon },
+        { name: "Product List", path: "/seller/product-list", icon: assets.product_list_icon },
+        { name: "Orders", path: "/seller/orders", icon: assets.order_icon },
+    ];
+
     return (
         <>
             <div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white">
