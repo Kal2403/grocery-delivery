@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { assets } from '../../assets/assets';
+import { assets, categories } from '../../assets/assets';
 
 const AddProduct = () => {
 
@@ -35,6 +35,15 @@ const AddProduct = () => {
                 <div className="flex flex-col gap-1 max-w-md">
                     <label className="text-base font-medium" htmlFor="product-description">Product Description</label>
                     <textarea onChange={(e) => setDescription(e.target.value)} value={description} id="product-description" rows={4} className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none" placeholder="Type here"></textarea>
+                </div>
+                <div className="w-full flex flex-col gap-1">
+                    <label className="text-base font-medium" htmlFor="category">Category</label>
+                    <select onChange={(e) => setCategory(e.target.value)} value={category} id="category" className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40">
+                        <option value="">Select Category</option>
+                        {categories.map((item, index) => (
+                            <option value={item.path}>{item.path}</option>
+                        ))}
+                    </select>
                 </div>
             </form>
         </div>
