@@ -20,7 +20,21 @@ const ProductList = () => {
                             </tr>
                         </thead>
                         <tbody className="text-sm text-gray-500">
+                            {products.map((product) => (
+                                <tr key={product._id} className="border-t border-gray-500/20">
+                                    <td className="md:px-4 pl-2 md:pl-4 py-3 flex items-center space-x-3 truncate">
+                                        <div className="border border-gray-300 rounded p-2">
+                                            <img src={product.image[0]} alt="Product" className="w-16" />
+                                        </div>
+                                        <span className="truncate max-sm:hidden w-full">{product.name}</span>
+                                    </td>
+                                    <td className="px-4 py-3">{product.category}</td>
+                                    <td className="px-4 py-3 max-sm:hidden">{currency}{product.offerPrice}</td>
+                                    <td className="px-4 py-3">
 
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
