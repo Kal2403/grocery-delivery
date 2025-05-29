@@ -19,6 +19,11 @@ const Orders = () => {
         <div className='no-scrollbar flex-1 h-[95vh] overflow-y-scroll'>
             <div className="md:p-10 p-4 space-y-4">
                 <h2 className="text-lg font-medium">Orders List</h2>
+                {orders.map((order, index) => (
+                    <div key={index} className="flex flex-col md:grid md:items-center md:flex-row gap-5 justify-between p-5 max-w-4xl rounded-md border border-gray-300">
+                        
+                    </div>
+                ))}
             </div>
         </div>
     );
