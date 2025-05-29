@@ -24,7 +24,13 @@ const Orders = () => {
                         <div className="flex gap-5 max-w-80">
                             <img className="w-12 h-12 object-cover" src={assets.box_icon} alt="boxIcon" />
                             <div>
-
+                                {order.items.map((item, index) => (
+                                    <div key={index} className="flex flex-col">
+                                        <p className="font-medium">
+                                            {item.product.name}{" "} <span className="text-primary">x {item.quantity}</span>
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
